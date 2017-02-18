@@ -1,0 +1,35 @@
+<!--<ion-header>
+  <ion-navbar> 
+    <button menuToggle>
+      <ion-icon name="md-menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>-->
+
+<ion-menu [content]="content">
+
+  <ion-toolbar class="menuToolbarCls">
+    <!--<ion-buttons start> 
+    <button menuToggle>
+    <ion-icon name="md-menu"></ion-icon>
+    </button>
+    </ion-buttons>-->
+    <ion-title><span style="color: #00abff;">Centilio</span></ion-title>
+  </ion-toolbar>
+
+  <ion-content style="background: rgb(64, 64, 64) !important;">
+    <ion-list>
+        <br><br><br><br>
+        <button ion-item *ngFor="let p of pages" (click)="openPage(p)" 
+              style="background: rgb(64, 64, 64) !important; color: #fff !important;">
+            <span style="padding-left: 15px;">{{p.title}}</span>
+        </button>
+        <button ion-item (click)="logout()" style="background: rgb(64, 64, 64) !important; color: #fff !important;">
+            <span style="padding-left: 15px;">Logout</span>
+        </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

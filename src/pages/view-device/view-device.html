@@ -1,0 +1,46 @@
+<!--
+  Generated template for the ViewDevice page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button menuToggle style="background:  #5cb7e4 !important;">
+      <!--<ion-icon name="md-menu"></ion-icon>-->
+      <img src="images/show-menu-icon.png" style="width: 35px; background: #5cb7e4;" />
+    </button>
+    <ion-title>View Device</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button ion-button small round icon-right type="submit" (click)="gotoAddDevice()">Add Device</button>
+    <ion-row style="border: 1px #b99898 solid;">
+      <ion-col width-30 style="border: 1px #b99898 solid;">
+        <strong>Device Name</strong>
+      </ion-col>
+      <ion-col width-30 style="border: 1px #b99898 solid;">
+        <strong>IMEI</strong>
+      </ion-col>
+      <ion-col width-30 style="border: 1px #b99898 solid;">
+        <strong>Date & Time</strong>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor = "let list of getDevicesList">
+      <ion-col width-30 style="border: 1px #b99898 solid;">
+        {{list.name}}
+      </ion-col>
+      <ion-col width-30 style="border: 1px #b99898 solid;">
+        {{list.deviceId}}
+      </ion-col>
+      <ion-col width-30 style="border: 1px #b99898 solid;">
+        {{list.timestamp | date: 'yyyy-MM-dd HH:mm:ss Z'}}
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>
