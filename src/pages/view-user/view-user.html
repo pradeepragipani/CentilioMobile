@@ -7,11 +7,11 @@
 <ion-header>
 
   <ion-navbar>
-    <button menuToggle style="background:  #5cb7e4 !important;">
+    <button menuToggle style="background:  #5cb7e4 !important; position: absolute !important;">
       <!--<ion-icon name="md-menu"></ion-icon>-->
       <img src="images/show-menu-icon.png" style="width: 35px; background: #5cb7e4;" />
     </button>
-    <ion-title>Users</ion-title>
+    <ion-title style="left: 50px; position: absolute; margin-top: -12px;">Users</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,26 +19,29 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-button small round icon-right type="submit" (click)="gotoAddUser()">Add User</button>
+    <!--<button ion-button style="width: 40%; float: right; padding: 20px; background: #518dbd;" round type="submit" (click)="gotoAddUser()">
+      Add User
+      </button><br>-->
+    <br>
     <ion-row style="border: 1px #b99898 solid;">
-      <ion-col width-30 style="border: 1px #b99898 solid;">
+      <ion-col width-30 style="border: 1px #b99898 solid; overflow: auto;">
         <strong>First Name</strong>
       </ion-col>
-      <ion-col width-30 style="border: 1px #b99898 solid;">
+      <ion-col width-30 style="border: 1px #b99898 solid; overflow: auto;">
         <strong>Last Name</strong>
       </ion-col>
-      <ion-col width-30 style="border: 1px #b99898 solid;">
+      <ion-col width-30 style="border: 1px #b99898 solid; overflow: auto;">
         <strong>Email</strong>
       </ion-col>
     </ion-row>
     <ion-row *ngFor = "let list of userList">
-      <ion-col width-30 style="border: 1px #b99898 solid;">
+      <ion-col width-30 style="border: 1px #b99898 solid; overflow: auto;">
         {{list.firstName}}
       </ion-col>
-      <ion-col width-30 style="border: 1px #b99898 solid;">
+      <ion-col width-30 style="border: 1px #b99898 solid; overflow: auto;">
         {{list.lastName}}
       </ion-col>
-      <ion-col width-30 style="border: 1px #b99898 solid;">
+      <ion-col width-30 style="border: 1px #b99898 solid; overflow: auto;">
         {{list.primaryEmail}}
       </ion-col>
     </ion-row>

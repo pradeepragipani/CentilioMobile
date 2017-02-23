@@ -75,6 +75,7 @@ export class DashboardPage {
     //     }
     //   }
     // });
+    this.globalMethods.showLocationLoading();
   }
 
   ionViewDidLoad() {
@@ -174,9 +175,10 @@ export class DashboardPage {
           // for (let i = 0; i < deviceLoc.length; i++){
           //     createMarker(deviceLoc[i]);
           // }
+          
+        this.globalMethods.loading.dismiss();
         resolve(this.map);
-  
-      });
+        });
     });
  
   }

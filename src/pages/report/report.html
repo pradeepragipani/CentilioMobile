@@ -1,0 +1,68 @@
+<!--
+  Generated template for the Report page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button menuToggle style="background:  #5cb7e4 !important; position: absolute !important;">
+      <!--<ion-icon name="md-menu"></ion-icon>-->
+      <img src="images/show-menu-icon.png" style="width: 35px; background: #5cb7e4;" />
+    </button>
+    <ion-title style="left: 50px; position: absolute; margin-top: -12px;">Reports</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>Device</ion-label>
+    <!--<ion-input type="text" [(ngModel)]="deviceDetails.deviceType" formControlName="type"></ion-input>-->
+    <ion-select [(ngModel)]="deviceDetails.device">
+      <!--<ion-option value="" selected="true">Select</ion-option>-->
+      <ion-option *ngFor = "let list of getDeviceList" [value]="list.uuid">{{list.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <br>
+  <button ion-button style="width: 40%; float: right; padding: 20px; background: #518dbd;" round type="submit" (click)="onChange()">Submit</button>
+  <br><br>
+  <ion-list [hidden] = "!toDisplayTable">
+    <br><br>
+    <ion-row style="border: 1px #b99898 solid;">
+      <ion-col width-25 style="border: 1px #b99898 solid;">
+        <strong>Latitude</strong>
+      </ion-col>
+      <ion-col width-25 style="border: 1px #b99898 solid;">
+        <strong>Longitude</strong>
+      </ion-col>
+      <ion-col width-15 style="border: 1px #b99898 solid;">
+        <strong>Battery</strong>
+      </ion-col>
+      <ion-col width-35 style="border: 1px #b99898 solid;">
+        <strong>Time</strong>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor = "let list of getReadingsData">
+      <ion-col width-25 style="border: 1px #b99898 solid;">
+        {{list.readings[0].value}}
+      </ion-col>
+      <ion-col width-25 style="border: 1px #b99898 solid;">
+        {{list.readings[1].value}}
+      </ion-col>
+      <ion-col width-15 style="border: 1px #b99898 solid;">
+        {{list.readings[3].value}}
+      </ion-col>
+      <ion-col width-35 style="border: 1px #b99898 solid;">
+        {{list.timestamp | date: 'yyyy-MM-dd HH:mm:ss Z'}}
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+  <ion-item [hidden] = "!toDisplayNoDetails">
+    <h3><span style="color: #e25050; font-weight: 500;">No Readings Found..</span></h3>
+  </ion-item>
+
+</ion-content>

@@ -14,12 +14,18 @@ import { ViewUserPage } from '../pages/view-user/view-user';
 import { DeviceTabPage } from '../pages/device-tab/device-tab';
 import { AddDevicePage } from '../pages/add-device/add-device';
 import { ViewDevicePage } from '../pages/view-device/view-device';
+import { ReportPage } from '../pages/report/report';
+import { MapDevicePage } from '../pages/map-device/map-device';
+import { ManageDevicePage } from '../pages/manage-device/manage-device';
 
 import { Global } from '../providers/global';
 import { LoginService } from '../providers/login-service';
 import { HomeService } from '../providers/home-service';
 import { UserService } from '../providers/user-service';
 import { DeviceService } from '../providers/device-service';
+import { ReportService } from '../providers/report-service';
+import { MapDeviceService } from '../providers/map-device-service';
+import { ManageDeviceService } from '../providers/manage-device-service';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,10 @@ import { DeviceService } from '../providers/device-service';
     ViewUserPage,
     DeviceTabPage,
     AddDevicePage,
-    ViewDevicePage
+    ViewDevicePage,
+    ReportPage,
+    MapDevicePage,
+    ManageDevicePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -54,12 +63,16 @@ import { DeviceService } from '../providers/device-service';
     ViewUserPage,
     DeviceTabPage,
     AddDevicePage,
-    ViewDevicePage
+    ViewDevicePage,
+    ReportPage,
+    MapDevicePage,
+    ManageDevicePage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler}, Global,
     LoginService, HomeService,
-    UserService, DeviceService
+    UserService, DeviceService,
+    ReportService, MapDeviceService, ManageDeviceService
   ]
 })
 export class AppModule {}

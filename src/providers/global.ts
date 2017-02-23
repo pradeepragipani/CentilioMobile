@@ -34,4 +34,11 @@ export class Global {
     this.loading.present();
   }
 
+  showLocationLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Retreiving Location..! <br>Please wait..!'
+    });
+    this.loading.present();
+  }
+
 }

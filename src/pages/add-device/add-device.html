@@ -7,11 +7,11 @@
 <ion-header>
 
   <ion-navbar>
-    <button menuToggle style="background:  #5cb7e4 !important;">
+    <button menuToggle style="background:  #5cb7e4 !important; position: absolute !important;">
       <!--<ion-icon name="md-menu"></ion-icon>-->
       <img src="images/show-menu-icon.png" style="width: 35px; background: #5cb7e4;" />
     </button>
-    <ion-title>Add Device</ion-title>
+    <ion-title style="left: 50px; position: absolute; margin-top: -12px;">Add Device</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -36,7 +36,7 @@
       </ion-select>
     </ion-item>
     <br><br>
-    <button ion-button icon-right large type="submit" [disabled]="!todo.valid" round>Submit</button>
+    <button style="width: 100%; padding: 20px; background: #518dbd;" ion-button type="submit" [disabled]="!todo.valid" round>Submit</button>
   </form>
 
 </ion-content>

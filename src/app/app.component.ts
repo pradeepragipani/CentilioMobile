@@ -10,6 +10,9 @@ import { ContactPage } from '../pages/contact/contact';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { UserTabPage } from '../pages/user-tab/user-tab';
 import { DeviceTabPage } from '../pages/device-tab/device-tab';
+import { ReportPage } from '../pages/report/report';
+import { MapDevicePage } from '../pages/map-device/map-device';
+import { ManageDevicePage } from '../pages/manage-device/manage-device';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,7 +33,10 @@ export class MyApp {
     this.pages = [
       { title: 'Dashboard', component: DashboardPage },
       { title: 'Users', component: UserTabPage },
-      { title: 'Devices', component: DeviceTabPage }
+      { title: 'Devices', component: DeviceTabPage },
+      { title: 'Reports', component: ReportPage },
+      { title: 'Map Device', component: MapDevicePage },
+      { title: 'Manage Device', component: ManageDevicePage }
     ];
   }
 
