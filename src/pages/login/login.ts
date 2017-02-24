@@ -76,13 +76,13 @@ export class LoginPage {
   }
  
   public login() {
-    this.globalMethods.showLoading();
-   
+       
    if(this.registerCredentials.email == "" || this.registerCredentials.email == undefined){
     this.globalMethods.showAlert("Centilio !", "Please enter Email/Username");
    }else if(this.registerCredentials.password == "" || this.registerCredentials.password == undefined){
     this.globalMethods.showAlert("Centilio !", "Please enter Password");
    }else {
+     this.globalMethods.showLoading();
      this.loginService.login(this.registerCredentials).then((data) => {
       this.returnData = data;
       // console.log(data);

@@ -13,6 +13,7 @@ import { DeviceTabPage } from '../pages/device-tab/device-tab';
 import { ReportPage } from '../pages/report/report';
 import { MapDevicePage } from '../pages/map-device/map-device';
 import { ManageDevicePage } from '../pages/manage-device/manage-device';
+import { GraphPage } from '../pages/graph/graph';
 
 @Component({
   templateUrl: 'app.html'
@@ -36,8 +37,31 @@ export class MyApp {
       { title: 'Devices', component: DeviceTabPage },
       { title: 'Reports', component: ReportPage },
       { title: 'Map Device', component: MapDevicePage },
-      { title: 'Manage Device', component: ManageDevicePage }
+      { title: 'Manage Device', component: ManageDevicePage },
+      { title: 'Graph', component: GraphPage }
     ];
+
+    // if(localStorage.getItem('isCheckUser') == 'admin'){
+    //   alert("admin");
+    //   this.pages = [
+    //     { title: 'Dashboard', component: DashboardPage },
+    //     { title: 'Users', component: UserTabPage },
+    //     { title: 'Devices', component: DeviceTabPage },
+    //     { title: 'Reports', component: ReportPage },
+    //     { title: 'Map Device', component: MapDevicePage },
+    //     { title: 'Manage Device', component: ManageDevicePage }
+    //   ];
+    // }else {
+    //   alert("user");
+    //   this.pages = [
+    //     { title: 'Dashboard', component: DashboardPage },
+    //     // { title: 'Users', component: UserTabPage },
+    //     { title: 'Devices', component: DeviceTabPage },
+    //     { title: 'Reports', component: ReportPage },
+    //     // { title: 'Map Device', component: MapDevicePage },
+    //     // { title: 'Manage Device', component: ManageDevicePage }
+    //   ];
+    // }
   }
 
   openPage(page) {
@@ -49,6 +73,7 @@ export class MyApp {
   }
 
   logout() {
+    this.menu.close();
     localStorage.setItem('user', '');
     localStorage.setItem('pwd', '');
     localStorage.setItem('isCheckUser', '');

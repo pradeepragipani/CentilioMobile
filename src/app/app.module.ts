@@ -1,5 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { ChartsModule } from 'ng2-charts';
+import { DatePickerModule } from 'datepicker-ionic2';
 
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
@@ -17,6 +19,7 @@ import { ViewDevicePage } from '../pages/view-device/view-device';
 import { ReportPage } from '../pages/report/report';
 import { MapDevicePage } from '../pages/map-device/map-device';
 import { ManageDevicePage } from '../pages/manage-device/manage-device';
+import { GraphPage } from '../pages/graph/graph';
 
 import { Global } from '../providers/global';
 import { LoginService } from '../providers/login-service';
@@ -26,6 +29,7 @@ import { DeviceService } from '../providers/device-service';
 import { ReportService } from '../providers/report-service';
 import { MapDeviceService } from '../providers/map-device-service';
 import { ManageDeviceService } from '../providers/manage-device-service';
+import { GraphService } from '../providers/graph-service';
 
 @NgModule({
   declarations: [
@@ -44,10 +48,13 @@ import { ManageDeviceService } from '../providers/manage-device-service';
     ViewDevicePage,
     ReportPage,
     MapDevicePage,
-    ManageDevicePage
+    ManageDevicePage,
+    GraphPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ChartsModule,
+    DatePickerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,13 +73,14 @@ import { ManageDeviceService } from '../providers/manage-device-service';
     ViewDevicePage,
     ReportPage,
     MapDevicePage,
-    ManageDevicePage
+    ManageDevicePage,
+    GraphPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler}, Global,
     LoginService, HomeService,
     UserService, DeviceService,
-    ReportService, MapDeviceService, ManageDeviceService
+    ReportService, MapDeviceService, ManageDeviceService, GraphService
   ]
 })
 export class AppModule {}

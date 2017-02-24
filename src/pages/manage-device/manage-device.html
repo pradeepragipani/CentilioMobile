@@ -19,4 +19,42 @@
 
 <ion-content padding>
 
+  <ion-item>
+    <ion-label>Device</ion-label>
+    <!--<ion-input type="text" [(ngModel)]="deviceDetails.deviceType" formControlName="type"></ion-input>-->
+    <ion-select [(ngModel)]="deviceName">
+      <!--<ion-option value="" selected="true">Select</ion-option>-->
+      <ion-option *ngFor = "let list of getDeviceList" [value]="list.uuid">{{list.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-label>Brightness (Adjust Device Brightness) :</ion-label>
+  </ion-item>
+  <ion-row>
+    <ion-col>
+      <button ion-button style="top: 12px; left: 28%; background: #8bd22f;" round type="submit" (click)="adjustBrightness('increase')">
+        Increase
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button style="top: 12px; left: 5%; background: #e7ba08;" round type="submit" (click)="adjustBrightness('decrease')">
+        Decrease
+      </button>
+    </ion-col>
+  </ion-row>
+  <br>
+  <ion-item>
+    <ion-label>Play Sound on Device (Locate) :</ion-label>
+  </ion-item>
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+      <button ion-button style="top: 12px; background: #00abff;" round type="submit" (click)="playSound()">
+        Play
+      </button>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
 </ion-content>

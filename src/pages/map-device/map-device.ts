@@ -89,18 +89,21 @@ export class MapDevicePage {
       // alert("Please Select Device");
       this.globalMethods.showAlert('Centilio !', 'Please select Device');
     }else {
+      this.globalMethods.showLoading();
       this.mapDeviceService.getDeviceDetailsByDate(this.mapDevice).then(
           data => {
               this.getData = data
               console.log(this.getData);
               if(this.getData.status >= 200 || this.getData.status < 300){
                 console.log("Success");
+                this.globalMethods.loading.dismiss();
                 this.globalMethods.showAlert('Centilio !', 'Device Mapped Succesfully');
                 this.mapDevice = {
                   user: "",
                   device: ""
                 };
               }else {
+                this.globalMethods.loading.dismiss();
                 this.globalMethods.showAlert('Centilio !', 'Please Check Details');
               }
             }

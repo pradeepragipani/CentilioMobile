@@ -32,30 +32,30 @@
   <ion-list [hidden] = "!toDisplayTable">
     <br><br>
     <ion-row style="border: 1px #b99898 solid;">
-      <ion-col width-25 style="border: 1px #b99898 solid;">
+      <ion-col width-25 style="border: 1px #b99898 solid; overflow: auto;">
         <strong>Latitude</strong>
       </ion-col>
-      <ion-col width-25 style="border: 1px #b99898 solid;">
+      <ion-col width-25 style="border: 1px #b99898 solid; overflow: auto;">
         <strong>Longitude</strong>
       </ion-col>
-      <ion-col width-15 style="border: 1px #b99898 solid;">
+      <ion-col width-15 style="border: 1px #b99898 solid; overflow: auto;">
         <strong>Battery</strong>
       </ion-col>
-      <ion-col width-35 style="border: 1px #b99898 solid;">
+      <ion-col width-35 style="border: 1px #b99898 solid; overflow: auto;">
         <strong>Time</strong>
       </ion-col>
     </ion-row>
     <ion-row *ngFor = "let list of getReadingsData">
-      <ion-col width-25 style="border: 1px #b99898 solid;">
+      <ion-col width-25 style="border: 1px #b99898 solid; overflow: auto;">
         {{list.readings[0].value}}
       </ion-col>
-      <ion-col width-25 style="border: 1px #b99898 solid;">
+      <ion-col width-25 style="border: 1px #b99898 solid; overflow: auto;">
         {{list.readings[1].value}}
       </ion-col>
-      <ion-col width-15 style="border: 1px #b99898 solid;">
+      <ion-col width-15 style="border: 1px #b99898 solid; overflow: auto;">
         {{list.readings[3].value}}
       </ion-col>
-      <ion-col width-35 style="border: 1px #b99898 solid;">
+      <ion-col width-35 style="border: 1px #b99898 solid; overflow: auto;">
         {{list.timestamp | date: 'yyyy-MM-dd HH:mm:ss Z'}}
       </ion-col>
     </ion-row>

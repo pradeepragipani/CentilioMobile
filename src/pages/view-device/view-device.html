@@ -24,24 +24,24 @@
       </button><br>-->
     <br>
     <ion-row style="border: 1px #b99898 solid;">
-      <ion-col width-30 style="border: 1px #b99898 solid;">
+      <ion-col width-30 style="border: 1px #b99898 solid; overflow: auto;">
         <strong>Device Name</strong>
       </ion-col>
-      <ion-col width-30 style="border: 1px #b99898 solid;">
+      <ion-col width-30 style="border: 1px #b99898 solid; overflow: auto;">
         <strong>IMEI</strong>
       </ion-col>
-      <ion-col width-30 style="border: 1px #b99898 solid;">
+      <ion-col width-30 style="border: 1px #b99898 solid; overflow: auto;">
         <strong>Date & Time</strong>
       </ion-col>
     </ion-row>
     <ion-row *ngFor = "let list of getDevicesList">
-      <ion-col width-30 style="border: 1px #b99898 solid;">
+      <ion-col width-30 style="border: 1px #b99898 solid; overflow: auto;">
         {{list.name}}
       </ion-col>
-      <ion-col width-30 style="border: 1px #b99898 solid;">
+      <ion-col width-30 style="border: 1px #b99898 solid; overflow: auto;">
         {{list.deviceId}}
       </ion-col>
-      <ion-col width-30 style="border: 1px #b99898 solid;">
+      <ion-col width-30 style="border: 1px #b99898 solid; overflow: auto;">
         {{list.timestamp | date: 'yyyy-MM-dd HH:mm:ss Z'}}
       </ion-col>
     </ion-row>
