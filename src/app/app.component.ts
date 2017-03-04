@@ -28,7 +28,11 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
-      Splashscreen.hide();
+      // Splashscreen.hide();
+      // this.hideSplashScreen();
+      setTimeout(()=> {
+        Splashscreen.hide();
+      }, 100);
     });
 
     this.pages = [
@@ -62,6 +66,14 @@ export class MyApp {
     //     // { title: 'Manage Device', component: ManageDevicePage }
     //   ];
     // }
+  }
+
+  hideSplashScreen() {
+    if(Splashscreen) {
+      setTimeout(()=> {
+        Splashscreen.hide();
+      }, 100);
+    }
   }
 
   openPage(page) {

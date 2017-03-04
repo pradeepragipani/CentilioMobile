@@ -24,7 +24,7 @@ export class DashboardPage {
   mapInitialised: boolean = false;
   apiKey: any;
   readings: any;
-  lats:any; longs:any;
+  lats: any = ""; longs: any = "";
   deviceLocationObj:any;
   deviceLocationArr: any;
   locations: any;
@@ -75,12 +75,16 @@ export class DashboardPage {
     //     }
     //   }
     // });
-    this.globalMethods.showLocationLoading();
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddDevicePage');
     this.loadGoogleMaps();
+  }
+
+  ionViewDidEnter() {
+    this.globalMethods.enableMenu();
   }
 
   loadGoogleMaps(){
@@ -118,8 +122,15 @@ export class DashboardPage {
  
     if(this.homeService.isOnline()){
       console.log("showing map");
-      this.initMap();
+      // this.initMap();
       this.enableMap();
+      if((this.lats == "" || this.lats == undefined) && (this.longs == "" || this.longs == "")){
+        // alert("if");
+        this.initMap();
+      }else{
+        // alert("else");
+        
+      }
     }
     else {
       console.log("disabling map");
@@ -131,6 +142,7 @@ export class DashboardPage {
   }
  
   initMap(): Promise<any>{
+    this.globalMethods.showLocationLoading();
  
     this.mapInitialised = true;
     let markers = [];
@@ -138,7 +150,10 @@ export class DashboardPage {
  
     return new Promise((resolve) => {
       Geolocation.getCurrentPosition().then((position) => {
-  
+        
+        this.lats = position.coords.latitude;
+        this.longs = position.coords.longitude;
+
         let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   
         let mapOptions = {

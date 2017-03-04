@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { AlertController, LoadingController, Loading } from 'ionic-angular';
+import { AlertController, LoadingController, Loading, MenuController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 /*
@@ -14,8 +14,17 @@ export class Global {
 
   loading: Loading;
   
-  constructor(public http: Http, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
+  constructor(public http: Http, private alertCtrl: AlertController, private loadingCtrl: LoadingController,
+              public menu: MenuController) {
     console.log('Hello Global Provider');
+  }
+
+  enableMenu() {
+    this.menu.swipeEnable(true, 'menu1');
+  }
+
+  disableMneu() {
+    this.menu.swipeEnable(false, 'menu1');
   }
 
   showAlert(title, subTitle) {
@@ -36,7 +45,7 @@ export class Global {
 
   showLocationLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Retreiving Location..! <br>Please wait..!'
+      content: 'Retreiving Location.. <br>Please wait..!'
     });
     this.loading.present();
   }

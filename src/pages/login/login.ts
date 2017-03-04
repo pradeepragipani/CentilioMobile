@@ -1,5 +1,5 @@
 import { Component, trigger, state, style, transition, animate, keyframes } from '@angular/core';
-import { NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController, Loading, MenuController } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
@@ -69,7 +69,11 @@ export class LoginPage {
   userDetails: any;
  
   constructor(private nav: NavController, private loginService: LoginService, private alertCtrl: AlertController, 
-              private loadingCtrl: LoadingController, private globalMethods: Global) {}
+              private loadingCtrl: LoadingController, private globalMethods: Global, public menu: MenuController) {}
+
+  ionViewDidEnter() {
+    this.globalMethods.disableMneu();
+  }
  
   public createAccount() {
     this.nav.push(HomePage);
